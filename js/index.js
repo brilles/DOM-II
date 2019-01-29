@@ -55,14 +55,14 @@ img1.addEventListener("dblclick", e => {
 //pseudo toggle
 addEventListener("keyup", e => {
   for (i = 0; i < nav.length; i++) {
-    nav[i].style.color = "green";
+    nav[i].style.color = "white";
   }
 });
 
 //pseudo toggle
 addEventListener("keydown", e => {
   for (i = 0; i < nav.length; i++) {
-    nav[i].style.color = "purple";
+    nav[i].style.color = "black";
   }
 });
 
@@ -71,4 +71,29 @@ addEventListener("load", e => {
   var today = new Date();
   var year = today.getFullYear();
   footer1.textContent = `Copyright Fun Bus ${year}`;
+});
+
+addEventListener("scroll", e => {
+  document.querySelector("nav").style.background = "#F06E23";
+  document.querySelector("nav").style["border-radius"] = "5px";
+});
+
+addEventListener("drag", e => {
+  img1.style.border = "2px solid purple";
+});
+
+addEventListener("mouseout", e => {
+  img1.style["border-radius"] = "10px";
+});
+
+addEventListener("copy", e => {
+  window.alert("Congrats! You've copied something to the clipboard");
+});
+
+addEventListener("cut", e => {
+  window.alert("Congrats! You've cut something to the clipboard");
+});
+
+addEventListener("paste", e => {
+  window.alert("Congrats! You've pasted something to the clipboard");
 });
