@@ -34,8 +34,12 @@ logo.addEventListener("click", e => {
   document.querySelector("html").style.color = "white";
   document.querySelector("html").style.transitionDuration = "1s";
   document.querySelector("header").style.transitionDuration = "1s";
+
+  var tl = new TimelineLite();
+
   logo.textContent = "Fun Bus (darkmode)";
   footer.style.background = "#303030";
+
   for (i = 0; i < nav.length; i++) {
     nav[i].style.color = "white";
   }
@@ -44,6 +48,7 @@ logo.addEventListener("click", e => {
   //change color to black in darkmode when scroll
   button.addEventListener("wheel", e => {
     for (i = 0; i < nav.length; i++) {
+      TweenMax.to(e.currentTarget, 1, { width: 250, ease: Bounce.easeOut });
       buttons[i].style.color = "black";
       buttons[i].style.border = "5px solid white";
     }
@@ -116,3 +121,9 @@ nav.forEach(e =>
     e.preventDefault();
   })
 );
+
+var duration = 2;
+
+var tl = new TimelineMax();
+//grow the line
+tl.from(".container", 2, { width: 0 });
