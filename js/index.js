@@ -27,10 +27,13 @@ const imgs = document.querySelectorAll("img");
 const footerDark = document.querySelectorAll("footer p");
 
 //change to DARKMODE on click of logo
+
 logo.addEventListener("click", e => {
   document.querySelector("html").style.background = "#303030";
   document.querySelector("header").style.background = "#303030";
   document.querySelector("html").style.color = "white";
+  document.querySelector("html").style.transitionDuration = "1s";
+  document.querySelector("header").style.transitionDuration = "1s";
   logo.textContent = "Fun Bus (darkmode)";
   footer.style.background = "#303030";
   for (i = 0; i < nav.length; i++) {
@@ -97,3 +100,19 @@ addEventListener("cut", e => {
 addEventListener("paste", e => {
   window.alert("Congrats! You've pasted something to the clipboard");
 });
+
+document.querySelector(".intro ").addEventListener("click", e => {
+  alert("intro clicked");
+});
+
+document.querySelector("p").addEventListener("click", e => {
+  alert("propagation stopped if there's not an alert after this alert");
+  e.stopPropagation();
+});
+
+//prevent a tags from refreshing (stops the original behavior)
+nav.forEach(e =>
+  e.addEventListener("click", e => {
+    e.preventDefault();
+  })
+);
