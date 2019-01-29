@@ -15,6 +15,7 @@
 const logo = document.querySelector(".logo-heading");
 const nav = document.querySelectorAll("a");
 const img1 = document.querySelector("img");
+const buttons = document.querySelectorAll(".btn");
 const button = document.querySelector(".btn");
 const footer1 = document.querySelector(".footer p");
 const footer = document.querySelector(".footer");
@@ -22,7 +23,6 @@ const contact = document.querySelectorAll("a");
 const h2s = document.querySelectorAll("h2");
 const h3s = document.querySelectorAll("h3");
 const html = document.querySelector("html");
-
 const imgs = document.querySelectorAll("img");
 const footerDark = document.querySelectorAll("footer p");
 
@@ -31,22 +31,25 @@ logo.addEventListener("click", e => {
   document.querySelector("html").style.background = "#303030";
   document.querySelector("header").style.background = "#303030";
   document.querySelector("html").style.color = "white";
+  logo.textContent = "Fun Bus (darkmode)";
+  footer.style.background = "#303030";
   for (i = 0; i < nav.length; i++) {
     nav[i].style.color = "white";
   }
-  logo.textContent = "Fun Bus (darkmode)";
-  footer.style.background = "#303030";
+
   footer.querySelector("p").style.color = "white";
+  //change color to black in darkmode when scroll
+  button.addEventListener("wheel", e => {
+    for (i = 0; i < nav.length; i++) {
+      buttons[i].style.color = "black";
+      buttons[i].style.border = "5px solid white";
+    }
+  });
 });
 
 //add contrast border on img mouseover
 img1.addEventListener("dblclick", e => {
-  imgs.forEach(e => (e.style.border = "5px solid hotpink"));
-});
-
-//change copyright to 2019 on scroll
-footer1.addEventListener("wheel", e => {
-  footer1.textContent = "Copyright Fun Bus 2019";
+  imgs.forEach(e => (e.style.border = "2px solid hotpink"));
 });
 
 //pseudo toggle
